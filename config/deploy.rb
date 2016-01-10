@@ -46,6 +46,7 @@ namespace :deploy do
     run_locally do
       system("npm run build -- --production")
       system("scp -r #{Dir.pwd}/build www-data@immersionftw.com:#{fetch(:release_path)}")
+      system("scp -r #{Dir.pwd}/src/assets www-data@immersionftw.com:#{fetch(:release_path)}")
     end
   end
 
