@@ -6,6 +6,10 @@
 
   <body>
     <div id="root"></div>
-    <script src="http://localhost:8080/bundle.js"></script>
+    <script>
+      var script = document.createElement('script');
+      script.src = document.location.protocol + '//' + document.location.hostname + ':8080/bundle.js';
+      document.body.appendChild(script);
+    </script>
   </body>
 </html>

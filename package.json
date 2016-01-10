@@ -5,6 +5,7 @@
   "dependencies": {
     "aframe-core": "git://github.com/aframevr/aframe-core.git#dev",
     "aframe-react": "git://github.com/ngokevin/aframe-react#master",
+    "aframe-text-component": "0.1.0",
     "babel-polyfill": "^6.3.14",
     "classnames": "2.2.1",
     "fetch-jsonp": "1.0.0",
@@ -21,7 +22,7 @@
   "scripts": {
     "build": "webpack",
     "serve": "cd src && python -m SimpleHTTPServer 5555",
-    "serve-js": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot"
+    "serve-js": "webpack-dev-server --host 0.0.0.0 --content-base src --progress --watch --history-api-fallback --inline --hot"
   },
   "repository": {
     "type": "git",
