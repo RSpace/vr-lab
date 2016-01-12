@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 
 import Camera from '../components/Camera'
 import Cursor from '../components/Cursor'
+import ProfileGrid from './ProfileGrid'
 
 class Wrapper extends Component {
   render() {
@@ -16,8 +17,7 @@ class Wrapper extends Component {
         <Scene>
           <Camera position="0 0 0"><Cursor/></Camera>
 
-          <Entity text="text: DIRECTORS; size: 0.4" material="color: black" position="2.2 4.4 -5" rotation="0 -45 0" />
-          <a-entity geometry="primitive: plane; width: 5; height: 5;" position="4.75 3 -5" rotation="0 -45 0" material="color: black"></a-entity>
+          <ProfileGrid position="2.2 4.4 -5" rotation="0 -45 0" text="DIRECTORS" type="director" />
 
           <Entity text="text: PRODUCERS; size: 0.4" material="color: black" position="2.2 -0.8 -5" rotation="0 -45 0" />
           <a-entity geometry="primitive: plane; width: 5; height: 5;" position="4.75 -4 -5" rotation="0 -45 0" material="color: black"></a-entity>
@@ -26,7 +26,10 @@ class Wrapper extends Component {
           <a-entity geometry="primitive: plane; width: 5; height: 5;" position="-4.75 3 -5" rotation="0 45 0" material="color: black"></a-entity>
 
           <Entity text="text: EXHIBITIONS; size: 0.4" material="color: black" position="-4.8 -0.8 -2.5" rotation="0 45 0" />
-          <a-entity geometry="primitive: plane; width: 5; height: 5;" position="-4.75 -4 -5" rotation="0 45 0" material="color: black"></a-entity>
+          <a-entity position="-4.75 -4 -5" rotation="0 45 0">
+            <a-entity geometry="primitive: plane; width: 1; height: 1;" position="0 0 0" material="color: black"></a-entity>
+            <a-entity geometry="primitive: plane; width: 1; height: 1;" position="2 2 0" material="color: black"></a-entity>
+          </a-entity>
         </Scene>
       </div>
     )
@@ -35,6 +38,9 @@ class Wrapper extends Component {
   //<Entity geometry={{primitive: 'sphere', radius: 9.5}}
   //  material={{repeat: "50 25", shader: 'flat', src: 'url(assets/grid2.png)'}}
   //  scale="1 1 -1"/>
+
+  //<a-entity geometry="primitive: plane; width: 5; height: 5;" position="-4.75 -4 -5" rotation="0 45 0" material="color: black"></a-entity>
+
 }
 
 // Which part of the Redux global state does our component want to receive as props?

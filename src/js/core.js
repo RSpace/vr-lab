@@ -1,3 +1,7 @@
-import {Map} from 'immutable'
-
-export const INITIAL_STATE = Map()
+export function toggleProfileDescription(state, profileId) {
+  if (state === profileId) {
+    return null
+  } else {
+    return profileId
+  }
+}
