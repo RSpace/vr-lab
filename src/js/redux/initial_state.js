@@ -149,7 +149,7 @@ const INITIAL_STATE = fromJS({
       title: 'Filmmaker, Iceland',
       description: 'Karna is a documentary filmmaker with background in design and dramaturgy. She has worked on various productions around the world and recently received the Icelandic Design Award for the project Austurland: Designs from Nowhere.    ',
       photo: 'Karna-Sigurdardottir.jpg',
-      type: 'producer'
+      type: 'director'
     }
   ]
 })

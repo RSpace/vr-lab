@@ -19,8 +19,7 @@ class Wrapper extends Component {
 
           <ProfileGrid position="2.2 4.4 -5" rotation="0 -45 0" text="DIRECTORS" type="director" />
 
-          <Entity text="text: PRODUCERS; size: 0.4" material="color: black" position="2.2 -0.8 -5" rotation="0 -45 0" />
-          <a-entity geometry="primitive: plane; width: 5; height: 5;" position="4.75 -4 -5" rotation="0 -45 0" material="color: black"></a-entity>
+          <ProfileGrid position="2.2 -1.5 -5" rotation="0 -45 0" text="PRODUCERS" type="producer" />
 
           <Entity text="text: ABOUT THE LAB; size: 0.4" material="color: black" position="-4.8 4.4 -2.2" rotation="0 45 0" />
           <a-entity geometry="primitive: plane; width: 5; height: 5;" position="-4.75 3 -5" rotation="0 45 0" material="color: black"></a-entity>

@@ -6,22 +6,22 @@ import { toggleProfileDescription } from '../redux/actions'
 const photoWidth = 1
 const photoHeight = 1
 const photoSpacing = 0.5
-const profilesPerRow = 3
 
 class ProfileGrid extends Component {
   render () {
     const { position, rotation, text, profiles } = this.props;
+    const profilesPerRow = Math.ceil(Math.sqrt(profiles.length))
 
     return (
       <Entity position={position} rotation={rotation}>
-        <Entity text={{text: text, size: 0.4}} material="color: black" />
-        {profiles.map(this.renderProfile.bind(this))}
+        <Entity text={{text: text, size: 0.4}} material="color: black" position="0 0 0" />
+        {profiles.map(this.renderProfile.bind(this, profilesPerRow))}
       </Entity>
     )
   }
 
-  renderProfile (profile, index) {
-    let position = this.positionFromIndex(index)
+  renderProfile (profilesPerRow, profile, index) {
+    const position = this.positionFromIndex(index, profilesPerRow)
 
     return (
       <Entity key={index}
@@ -32,8 +32,10 @@ class ProfileGrid extends Component {
     )
   }
 
-  positionFromIndex (index) {
-    return `{index} 0 0` // TODO
+  positionFromIndex (index, profilesPerRow) {
+    const x = (photoWidth + photoSpacing)*(index % profilesPerRow)
+    const y = ((photoHeight + photoSpacing)*Math.floor(index/profilesPerRow) + 1)*-1
+    return `${x} ${y} 0`
   }
 }
 
