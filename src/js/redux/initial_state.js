@@ -1,7 +1,7 @@
 import {fromJS} from 'immutable'
 
 const INITIAL_STATE = fromJS({
-  activeDescriptions: {
+  activeProfileIds: {
     director: null,
     producer: null
   },

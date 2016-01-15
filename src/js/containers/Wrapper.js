@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-//import DevTools from './DevTools'
+import DevTools from './DevTools'
 import {registerComponent} from 'aframe-core'
 import {component} from 'aframe-text-component'
 registerComponent('text', component)
@@ -30,6 +30,7 @@ class Wrapper extends Component {
             <a-entity geometry="primitive: plane; width: 1; height: 1;" position="2 2 0" material="color: black"></a-entity>
           </a-entity>
         </Scene>
+        <DevTools />
       </div>
     )
   }
@@ -37,8 +38,6 @@ class Wrapper extends Component {
   //<Entity geometry={{primitive: 'sphere', radius: 9.5}}
   //  material={{repeat: "50 25", shader: 'flat', src: 'url(assets/grid2.png)'}}
   //  scale="1 1 -1"/>
-
-  //<a-entity geometry="primitive: plane; width: 5; height: 5;" position="-4.75 -4 -5" rotation="0 45 0" material="color: black"></a-entity>
 
 }
 
