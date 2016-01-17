@@ -18,7 +18,7 @@ class Wrapper extends Component {
     return (
       <div>
         <Scene>
-          <Camera position="0 0 0"><Cursor maxDistance="10" /></Camera>
+          <Camera position="0 0 0"><Cursor maxDistance="10" color="#ff0000" /></Camera>
 
           <ProfileGrid position="2.2 4.4 -5" rotation="0 -45 0" text="DIRECTORS" type="director" />
 

@@ -17,7 +17,7 @@ class ProfileGrid extends Component {
       <Entity position={position} rotation={rotation}>
         <Entity text={{text: text, size: 0.4}} material="color: black" position="0 0 0" />
         {profiles.map(this.renderProfile.bind(this, profilesPerRow))}
-        <ProfileDescription position="-5 0 0" {...this.activeProfileProps()} />
+        <ProfileDescription position="-3 -2 0" {...this.activeProfileProps()} />
       </Entity>
     )
   }
@@ -43,11 +43,13 @@ class ProfileGrid extends Component {
   activeProfileProps () {
     const { profiles, activeProfileId } = this.props
     const profile = profiles.find(profile => { return profile.get('id') === activeProfileId })
-    if (profile) {
+    const descriptionImage = profile ? profile.get('descriptionImage') : null
+    if (profile && descriptionImage) {
       return {
         visible: true,
         name: profile.get('name'),
-        description: profile.get('description')
+        description: profile.get('description'),
+        descriptionUrl: `assets/descriptions/${descriptionImage}`
       }
     } else {
       return {

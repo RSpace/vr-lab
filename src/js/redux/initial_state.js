@@ -20,6 +20,7 @@ const INITIAL_STATE = fromJS({
       name: 'Alexander Lind',
       title: 'Film director, Denmark',
       description: 'Alexander received international recognition in 2014 when he won the New Nordic Voice Award. His films balance between hybrid, documentary and arts that stand out by being highly artistic in a strong visual language.',
+      descriptionImage: 'Alexander-Lind.png',
       photo: 'Alexander-Lind.jpg',
       type: 'director'
     },
@@ -133,6 +134,7 @@ const INITIAL_STATE = fromJS({
       name: 'Niels Ahlefeldt Wetterberg',
       title: 'Producer, Denmark',
       description: 'Niels W. is an entrepreneur by heart. He has more than 12 years of professional experience in the film industry. Coupled with a business degree he is always looking at how new media platforms and technological advances can converge to innovate creative expression. He has primarily worked with advertising for big brands. However, great stories are what makes him tick. He is also an avid gamer and see a bright future ahead for both film and gaming. As a producer at Investigate North he seeks to make that come true.  ',
+      descriptionImage: 'Niels-Wetterberg.png',
       photo: 'Niels-Ahlefeldt-Wetterberg.jpg',
       type: 'producer'
     },
