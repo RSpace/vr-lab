@@ -1,5 +1,5 @@
 import INITIAL_STATE from './initial_state'
-import {toggleProfileDescription} from '../core'
+import {toggleProfileDescription, toggleVideoPlaying} from '../core'
 
 export default function labHandler(state = INITIAL_STATE, action) {
   switch(action.type) {
@@ -8,6 +8,8 @@ export default function labHandler(state = INITIAL_STATE, action) {
       const profileType = profile.get('type')
 
       return state.updateIn(['activeProfileIds', profileType], currentState => toggleProfileDescription(currentState, action.profileId))
+    case 'TOGGLE_VIDEO_PLAYING':
+      return state.update('isVideoPlaying', isVideoPlaying => toggleVideoPlaying(isVideoPlaying))
   }
   return state
 }

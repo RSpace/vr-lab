@@ -11,7 +11,7 @@ const photoSpacing = 0.5
 class ProfileGrid extends Component {
   render () {
     const { position, rotation, text, profiles } = this.props
-    const profilesPerRow = Math.ceil(Math.sqrt(profiles.length))
+    const profilesPerRow = Math.ceil(Math.sqrt(profiles.size))
 
     return (
       <Entity position={position} rotation={rotation}>

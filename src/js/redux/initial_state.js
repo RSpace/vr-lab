@@ -5,6 +5,7 @@ const INITIAL_STATE = fromJS({
     director: null,
     producer: null
   },
+  isVideoPlaying: false,
   profiles: [
     {
       id: 0,

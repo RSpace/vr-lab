@@ -5,3 +5,7 @@ export function toggleProfileDescription(state, profileId) {
     return profileId
   }
 }
+
+export function toggleVideoPlaying(isVideoPlaying) {
+  return !isVideoPlaying
+}
