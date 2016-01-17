@@ -11,10 +11,6 @@ set :repo_url, 'git@github.com:RSpace/vr-lab.git'
 set :deploy_to, '/srv/www/immersionftw.com/vr-lab'
 set :tmp_dir, "/home/www-data/tmp"
 
-#set :rsync_options, %w[--recursive --delete --delete-excluded --exclude .git* node_modules/**/*.*]
-#set :rsync_cache, '/srv/www/immersionftw.com/rsync_cache'
-#set :rsync_stage, '/srv/www/immersionftw.com/rsync_stage'
-
 # Default value for :scm is :git
 # set :scm, :copy
 # set :exclude_dir, 'node_modules'
@@ -32,13 +28,13 @@ set :tmp_dir, "/home/www-data/tmp"
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('assets')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
 
 namespace :deploy do
 
@@ -46,10 +42,10 @@ namespace :deploy do
     run_locally do
       system("npm run build -- --production")
       system("scp -r #{Dir.pwd}/build www-data@immersionftw.com:#{fetch(:release_path)}")
-      system("scp -r #{Dir.pwd}/src/assets www-data@immersionftw.com:#{fetch(:release_path)}")
+      system("rsync -avz #{Dir.pwd}/src/assets/ www-data@immersionftw.com:#{shared_path}/assets")
     end
   end
 
-  after :finishing, :build_and_upload
+  after :updated, :build_and_upload
 
 end
