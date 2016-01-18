@@ -19,20 +19,19 @@ class Wrapper extends Component {
       <div>
         <Scene>
           <Camera position={this.getCameraPosition()}><Cursor maxDistance="10" color="#ff0000" /></Camera>
+          <Entity position="0 0 -3" geometry="primitive: plane; width: 2; height: 1" material={{shader: 'flat', src: 'url(assets/gfx/VRLAB-logo.png)'}} />
 
-          <ProfileGrid position="2.2 4.4 -5" rotation="0 -45 0" text="DIRECTORS" type="director" />
+          <ProfileGrid position="2.2 4.4 -5" rotation="0 -30 0" image="assets/gfx/Directors.png" type="director" />
+          <ProfileGrid position="2.2 -1.5 -5" rotation="0 -30 0" image="assets/gfx/Producers.png" type="producer" />
 
-          <ProfileGrid position="2.2 -1.5 -5" rotation="0 -45 0" text="PRODUCERS" type="producer" />
-
-          <Entity position="-4.8 4.4 -2.2" rotation="0 45 0" onClick={this.props.onVideoClicked}>
-            <Entity text="text: ABOUT THE LAB; size: 0.4" material="color: black" />
+          <Entity position="-4.8 4.4 -2.2" rotation="0 30 0" onClick={this.props.onVideoClicked}>
+            <Entity geometry="primitive: plane; width: 1.5; height: 0.5" position="0.7 0 0" material={{shader: 'flat', src: 'url(assets/gfx/About-The-Lab.png)'}} />
             <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg"
               position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false}
               isPlaying={this.props.isVideoPlaying} />
           </Entity>
 
-          <Entity text="text: EXHIBITIONS; size: 0.4" material="color: black" position="-4.8 -0.8 -2.5" rotation="0 45 0" />
-          <Entity position="-4.75 -4 -5" rotation="0 45 0" />
+          <Entity position="-1.8 -2.4 -2.2" rotation="0 30 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} />
         </Scene>
       </div>
     )
