@@ -26,7 +26,7 @@ class Wrapper extends Component {
 
           <Entity position="-4.8 4.4 -2.2" rotation="0 45 0" onClick={this.props.onVideoClicked}>
             <Entity text="text: ABOUT THE LAB; size: 0.4" material="color: black" />
-            <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg" position="2 -1.5 0" width="4" height="2.25" autoplay={this.props.isVideoPlaying} loop={false} />
+            <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg" position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false} isPlaying={this.props.isVideoPlaying} />
           </Entity>
 
           <Entity text="text: EXHIBITIONS; size: 0.4" material="color: black" position="-4.8 -0.8 -2.5" rotation="0 45 0" />

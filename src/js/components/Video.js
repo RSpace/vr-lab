@@ -1,13 +1,20 @@
 import {Entity} from 'aframe-react'
 import React, { Component } from 'react'
 
-export default props => {
-  const domId = `video${new Date().getTime()}`
-  const { position, src, width, height, autoplay, loop, image } = props
-  const translate = "0 0 0"
+export default class Video extends Component {
+  componentDidMount() {
+    this.playOrPause()
+  }
 
-  // Only render video when its supposed to play
-  if (autoplay) {
+  componentDidUpdate() {
+    this.playOrPause()
+  }
+
+  render () {
+    const domId = `video${new Date().getTime()}`
+    const { position, src, width, height, autoplay, loop, image, isPlaying } = this.props
+    const entitySrc = isPlaying ? `#${domId}` : `url(${image})`
+
     return (
       <Entity>
         <video id={domId}
@@ -17,29 +24,27 @@ export default props => {
                autoPlay={autoplay}
                loop={loop}
                crossOrigin="anonymous"
-               style={{display: 'none'}}>
+               style={{display: 'none'}}
+               ref="video"
+               >
         </video>
         <Entity geometry={{primitive: 'plane',
                             height: height,
                             width: width,
-                            translate}}
-                  material={{shader: 'flat', src: `#${domId}`}}
+                            translate: "0 0 0"}}
+                  material={{shader: 'flat', src: entitySrc}}
                   position={position} />
       </Entity>
     )
+  }
 
-  // Otherwise render image placeholder
-  } else {
-    return (
-      <Entity>
-        <Entity geometry={{primitive: 'plane',
-                            height: height,
-                            width: width,
-                            translate}}
-                  material={{src: `url(${image})`}}
-                  position={position} />
-      </Entity>
-    )
+  playOrPause () {
+    const video = this.refs['video']
+    if (this.props.isPlaying) {
+      video.play()
+    } else {
+      video.pause()
+    }
   }
 }
 
