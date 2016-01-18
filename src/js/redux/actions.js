@@ -5,4 +5,3 @@ export function toggleProfileDescription(profileId) {
 export function toggleVideoPlaying() {
   return { type: 'TOGGLE_VIDEO_PLAYING' }
 }
-

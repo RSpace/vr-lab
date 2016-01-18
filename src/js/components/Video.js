@@ -14,6 +14,7 @@ export default class Video extends Component {
     const domId = `video${new Date().getTime()}`
     const { position, src, width, height, autoplay, loop, image, isPlaying } = this.props
     const entitySrc = isPlaying ? `#${domId}` : `url(${image})`
+    //const entitySrc = `#${domId}`
 
     return (
       <Entity>

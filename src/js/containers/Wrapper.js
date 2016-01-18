@@ -11,14 +11,14 @@ import Cursor from '../components/Cursor'
 import Video from '../components/Video'
 import ProfileGrid from './ProfileGrid'
 
-import { toggleVideoPlaying } from '../redux/actions'
+import { toggleVideoPlaying, pauseVideo } from '../redux/actions'
 
 class Wrapper extends Component {
   render() {
     return (
       <div>
         <Scene>
-          <Camera position="0 0 0"><Cursor maxDistance="10" color="#ff0000" /></Camera>
+          <Camera position={this.getCameraPosition()}><Cursor maxDistance="10" color="#ff0000" /></Camera>
 
           <ProfileGrid position="2.2 4.4 -5" rotation="0 -45 0" text="DIRECTORS" type="director" />
 
@@ -26,7 +26,9 @@ class Wrapper extends Component {
 
           <Entity position="-4.8 4.4 -2.2" rotation="0 45 0" onClick={this.props.onVideoClicked}>
             <Entity text="text: ABOUT THE LAB; size: 0.4" material="color: black" />
-            <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg" position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false} isPlaying={this.props.isVideoPlaying} />
+            <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg"
+              position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false}
+              isPlaying={this.props.isVideoPlaying} />
           </Entity>
 
           <Entity text="text: EXHIBITIONS; size: 0.4" material="color: black" position="-4.8 -0.8 -2.5" rotation="0 45 0" />
@@ -34,6 +36,14 @@ class Wrapper extends Component {
         </Scene>
       </div>
     )
+  }
+
+  getCameraPosition () {
+    if(this.props.isVideoPlaying && !/iPhone/.test(navigator.platform)) {
+      return '-2.3 2.9 -2.3'
+    } else {
+      return '0 0 0'
+    }
   }
 
   //<Entity geometry={{primitive: 'sphere', radius: 9.5}}
@@ -52,7 +62,8 @@ function mapStateToProps(state) {
 // Which action creators does it want to receive by props?
 function mapDispatchToProps(dispatch) {
   return {
-    onVideoClicked: () => dispatch(toggleVideoPlaying())
+    onVideoClicked: () => dispatch(toggleVideoPlaying()),
+    onVideoPause: () => dispatch(pauseVideo())
   }
 }
 
