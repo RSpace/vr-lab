@@ -12,6 +12,7 @@ import Video from '../components/Video'
 import ProfileGrid from './ProfileGrid'
 
 import { toggleVideoPlaying, pauseVideo } from '../redux/actions'
+import { openUrl } from '../core'
 
 class Wrapper extends Component {
   render() {
@@ -19,7 +20,7 @@ class Wrapper extends Component {
       <div>
         <Scene>
           <Camera position={this.getCameraPosition()}><Cursor maxDistance="10" color="#ff0000" /></Camera>
-          <Entity position="0 0 -3" geometry="primitive: plane; width: 2; height: 1" material={{shader: 'flat', src: 'url(assets/gfx/VRLAB-logo.png)'}} />
+          <Entity position="0 0 -3" geometry="primitive: plane; width: 2; height: 1" material={{shader: 'flat', src: 'url(assets/gfx/VRLAB-logo.png)'}} onClick={openUrl.bind(this, 'http://cphdox.dk/mere-end-film/vrlab/')} />
 
           <ProfileGrid position="2.2 4.4 -5" rotation="0 -30 0" image="assets/gfx/Directors.png" type="director" />
           <ProfileGrid position="2.2 -1.5 -5" rotation="0 -30 0" image="assets/gfx/Producers.png" type="producer" />
@@ -62,7 +63,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onVideoClicked: () => dispatch(toggleVideoPlaying()),
-    onVideoPause: () => dispatch(pauseVideo())
+    onVideoPause: () => dispatch(pauseVideo()),
+    onLinkClicked: (url) => dispatch(openUrl(url))
   }
 }
 

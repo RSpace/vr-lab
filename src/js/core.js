@@ -9,3 +9,7 @@ export function toggleProfileDescription(state, profileId) {
 export function toggleVideoPlaying(isVideoPlaying) {
   return !isVideoPlaying
 }
+
+export function openUrl(url) {
+  window.open(url, '_blank')
+}
