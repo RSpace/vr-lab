@@ -11,13 +11,14 @@ const photoSpacing = 0.5
 class ProfileGrid extends Component {
   render () {
     const { position, rotation, image, profiles } = this.props
+    const { descPosition, descRotation } = this.props
     const profilesPerRow = Math.ceil(Math.sqrt(profiles.size))
 
     return (
       <Entity position={position} rotation={rotation}>
         <Entity geometry="primitive: plane; width: 1.5; height: 0.5" material={{shader: 'flat', src: `url(${image})`}} position="1.5 0 0" />
         {profiles.map(this.renderProfile.bind(this, profilesPerRow))}
-        <ProfileDescription position="-3 -2 0" {...this.activeProfileProps()} />
+        <ProfileDescription position={descPosition} rotation={descRotation} {...this.activeProfileProps()} />
       </Entity>
     )
   }
