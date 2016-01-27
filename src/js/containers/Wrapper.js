@@ -14,6 +14,8 @@ import ProfileGrid from './ProfileGrid'
 import { toggleVideoPlaying, pauseVideo } from '../redux/actions'
 import { openUrl } from '../core'
 
+const styles = require('../../scss/Wrapper.scss')
+
 class Wrapper extends Component {
   render() {
     return (
