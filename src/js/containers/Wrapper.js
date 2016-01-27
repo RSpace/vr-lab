@@ -21,7 +21,7 @@ class Wrapper extends Component {
     return (
       <div>
         <Scene>
-          <Camera position={this.getCameraPosition()}><Cursor maxDistance="10" color="#ff0000" /></Camera>
+          <Camera {...this.getCameraProps()}><Cursor maxDistance="10" color="#ff0000" /></Camera>
           <Entity position="0 0 -3" geometry="primitive: plane; width: 2; height: 1" material={{shader: 'flat', src: 'url(assets/gfx/VRLAB-logo.png)'}} />
 
           <ProfileGrid position="2.2 4.4 -2" rotation="25 -75 0"
@@ -45,18 +45,17 @@ class Wrapper extends Component {
     )
   }
 
-  getCameraPosition () {
+  getCameraProps () {
     if(this.props.isVideoPlaying && !/iPhone/.test(navigator.platform)) {
-      return '1 3 -1'
+      if (/Android/.test(navigator.userAgent)) {
+        return { 'position': '1 3 -1', 'look-controls': 'enabled: true' }
+      } else {
+        return { 'position': '-0.8 2.5 -1', 'rotation': '25 75 0', 'look-controls': 'enabled: false' }
+      }
     } else {
-      return '0 0 0'
+      return { 'position': '0 0 0', 'look-controls': 'enabled: true' }
     }
   }
-
-  //<Entity geometry={{primitive: 'sphere', radius: 9.5}}
-  //  material={{repeat: "50 25", shader: 'flat', src: 'url(assets/grid2.png)'}}
-  //  scale="1 1 -1"/>
-
 }
 
 // Which part of the Redux global state does our component want to receive as props?
