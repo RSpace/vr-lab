@@ -40,6 +40,9 @@ class Wrapper extends Component {
           </Entity>
 
           <Entity position="-3 -1 -1" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} />
+
+          <Entity position="0.15 -2 0" rotation="-90 0 0" onClick={openUrl.bind(this, 'https://itunes.apple.com/us/app/vrlab/id1045586626')} geometry="primitive: plane; width: 0.5; height: 0.25" material={{shader: 'flat', src: 'url(assets/gfx/app_store.png)'}} />
+          <Entity position="-0.55 -2 0" rotation="-90 0 0" onClick={openUrl.bind(this, 'https://play.google.com/store/apps/details?id=com.makropol.vrlab')} geometry="primitive: plane; width: 0.5; height: 0.25" material={{shader: 'flat', src: 'url(assets/gfx/google_play.png)'}} />
         </Scene>
       </div>
     )
