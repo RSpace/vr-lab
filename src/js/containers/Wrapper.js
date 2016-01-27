@@ -30,14 +30,14 @@ class Wrapper extends Component {
             descPosition="-3 -2 0" descRotation="0 60 20"
             image="assets/gfx/Producers.png" type="producer" />
 
-          <Entity position="-2.2 4.4 -2" rotation="25 75 0" onClick={this.props.onVideoClicked}>
+          <Entity position="-2.2 4.4 1" rotation="25 75 0" onClick={this.props.onVideoClicked}>
             <Entity geometry="primitive: plane; width: 1.5; height: 0.5" position="0.7 0 0" material={{shader: 'flat', src: 'url(assets/gfx/About-The-Lab.png)'}} />
             <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg"
               position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false}
               isPlaying={this.props.isVideoPlaying} />
           </Entity>
 
-          <Entity position="-3 -1 -2" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} />
+          <Entity position="-3 -1 -1" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} />
         </Scene>
       </div>
     )
@@ -45,7 +45,7 @@ class Wrapper extends Component {
 
   getCameraPosition () {
     if(this.props.isVideoPlaying && !/iPhone/.test(navigator.platform)) {
-      return '-2.3 2.9 -2.3'
+      return '1 3 -1'
     } else {
       return '0 0 0'
     }
