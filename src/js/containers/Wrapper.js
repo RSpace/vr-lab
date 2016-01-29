@@ -32,11 +32,14 @@ class Wrapper extends Component {
             descPosition="-3 -2 0" descRotation="0 60 20"
             image="assets/gfx/Producers.png" type="producer" />
 
-          <Entity position="-2.2 4.4 1" rotation="25 75 0" onClick={this.props.onVideoClicked}>
+          <Entity position="-2.2 4.4 1" rotation="25 75 0">
             <Entity geometry="primitive: plane; width: 1.5; height: 0.5" position="0.7 0 0" material={{shader: 'flat', src: 'url(assets/gfx/About-The-Lab.png)'}} />
-            <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg"
-              position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false}
-              isPlaying={this.props.isVideoPlaying} />
+            <Entity onClick={this.props.onVideoClicked}>
+              <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg"
+                position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false}
+                isPlaying={this.props.isVideoPlaying} />
+            </Entity>
+            <Entity geometry="primitive: plane; width: 2; height: 0.5" position="1.8 -3 0" onClick={openUrl.bind(this, 'http://cphdox.dk/en/more-than-films/vrlab/')} material={{shader: 'flat', src: 'url(assets/gfx/read_more.png)'}} />
           </Entity>
 
           <Entity position="-3 -1 -1" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} />
