@@ -45,6 +45,7 @@ class Wrapper extends Component {
           <Entity position="-0.55 -2 0" rotation="-90 0 0" onClick={openUrl.bind(this, 'https://play.google.com/store/apps/details?id=com.makropol.vrlab')} geometry="primitive: plane; width: 0.5; height: 0.25" material={{shader: 'flat', src: 'url(assets/gfx/google_play.png)'}} />
 
           <Entity position="0 0 1" rotation="0 180 0" geometry="primitive: plane; width: 2; height: 2" material={{shader: 'flat', src: 'url(assets/gfx/logoer.png)'}} />
+          <Entity position="0 5 0" rotation="90 0 0" geometry="primitive: plane; width: 2; height: 1" material={{shader: 'flat', src: 'url(assets/gfx/madeby.png)'}}  onClick={openUrl.bind(this, 'http://immersionftw.com/')} />
         </Scene>
       </div>
     )
