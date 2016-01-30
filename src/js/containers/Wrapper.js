@@ -32,7 +32,7 @@ class Wrapper extends Component {
             descPosition="-3 -2 0" descRotation="0 60 20"
             image="assets/gfx/Producers.png" type="producer" />
 
-          <Entity position="-2.2 4.4 1" rotation="25 75 0">
+          <Entity position="-2.2 4.4 1" rotation="25 75 0" onMouseEnter={this.activateCursor} onMouseLeave={this.deactivateCursor}>
             <Entity geometry="primitive: plane; width: 1.5; height: 0.5" position="0.7 0 0" material={{shader: 'flat', src: 'url(assets/gfx/About-The-Lab.png)'}} />
             <Entity onClick={this.props.onVideoClicked}>
               <Video src="assets/About-VR-LAB.mp4" image="assets/About-VR-LAB.jpg"
