@@ -25,11 +25,11 @@ class Wrapper extends Component {
           <Entity position="0 0 -3" geometry="primitive: plane; width: 2; height: 1" material={{shader: 'flat', src: 'url(assets/gfx/VRLAB-logo.png)'}} />
 
           <ProfileGrid position="3.2 4.4 -2" rotation="25 -75 0"
-            descPosition="-3 -2 0" descRotation="0 50 -20"
+            descPosition="-2.8 -3.3 0" descRotation="0 30 -15"
             image="assets/gfx/Directors.png" type="director" />
 
           <ProfileGrid position="4.5 -1 -2" rotation="-25 -75 0"
-            descPosition="-3 -2 0" descRotation="0 60 20"
+            descPosition="-2.8 -2.3 0" descRotation="0 40 15"
             image="assets/gfx/Producers.png" type="producer" />
 
           <Entity position="-2.2 4.4 1" rotation="25 75 0">
