@@ -6,6 +6,7 @@ var PI_2 = Math.PI / 2;
 // Settings
 var allowVerticalTouchMovement = true;
 var reverseMouseMovement = true;
+var mouseMovementSpeed = 0.003;
 
 module.exports.Component = registerComponent('custom-look-controls', {
   dependencies: ['position', 'rotation'],
@@ -167,8 +168,8 @@ module.exports.Component = registerComponent('custom-look-controls', {
       movementY *= -1;
     }
 
-    yawObject.rotation.y -= movementX * 0.002;
-    pitchObject.rotation.x -= movementY * 0.002;
+    yawObject.rotation.y -= movementX * mouseMovementSpeed;
+    pitchObject.rotation.x -= movementY * mouseMovementSpeed;
     pitchObject.rotation.x = Math.max(-PI_2, Math.min(PI_2, pitchObject.rotation.x));
   },
 
