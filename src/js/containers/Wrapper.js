@@ -57,7 +57,7 @@ class Wrapper extends Component {
   getCameraProps () {
     if(this.props.isVideoPlaying && !/iPhone/.test(navigator.platform)) {
       if (/Android/.test(navigator.userAgent)) {
-        return { 'position': '1 3 -1', 'look-controls': 'enabled: true' }
+        return { 'position': '0.5 1.5 -0.6', 'rotation': '25 75 0', 'look-controls': 'enabled: true' }
       } else {
         return { 'position': '-0.8 2.5 -1', 'rotation': '25 75 0', 'look-controls': 'enabled: false' }
       }
