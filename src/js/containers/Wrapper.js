@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 //import DevTools from './DevTools'
-import {registerComponent} from 'aframe-core'
-import {component} from 'aframe-text-component'
-registerComponent('text', component)
+import customLookControls from '../utils/custom-look-controls'
 import {Animation, Entity, Scene} from 'aframe-react'
 import { connect } from 'react-redux'
 
@@ -57,12 +55,12 @@ class Wrapper extends Component {
   getCameraProps () {
     if(this.props.isVideoPlaying && !/iPhone/.test(navigator.platform)) {
       if (/Android/.test(navigator.userAgent)) {
-        return { 'position': '0.5 1.5 -0.6', 'rotation': '25 75 0', 'look-controls': 'enabled: true' }
+        return { 'position': '0.5 1.5 -0.6', 'rotation': '25 75 0', 'custom-look-controls': 'enabled: true' }
       } else {
-        return { 'position': '-0.8 2.5 -1', 'rotation': '25 75 0', 'look-controls': 'enabled: false' }
+        return { 'position': '-0.8 2.5 -1', 'rotation': '25 75 0', 'custom-look-controls': 'enabled: false' }
       }
     } else {
-      return { 'position': '0 0 0', 'look-controls': 'enabled: true' }
+      return { 'position': '0 0 0', 'custom-look-controls': 'enabled: true' }
     }
   }
 }
