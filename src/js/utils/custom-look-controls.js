@@ -3,6 +3,10 @@ import { registerComponent, THREE } from 'aframe-core'
 // To avoid recalculation at every mouse movement tick
 var PI_2 = Math.PI / 2;
 
+// Settings
+var allowVerticalTouchMovement = true;
+var reverseMouseMovement = true;
+
 module.exports.Component = registerComponent('custom-look-controls', {
   dependencies: ['position', 'rotation'],
 
@@ -157,6 +161,12 @@ module.exports.Component = registerComponent('custom-look-controls', {
     }
     this.previousMouseEvent = event;
 
+    // Added: Support for "dragging" the canvas with the mouse
+    if (reverseMouseMovement) {
+      movementX *= -1;
+      movementY *= -1;
+    }
+
     yawObject.rotation.y -= movementX * 0.002;
     pitchObject.rotation.x -= movementY * 0.002;
     pitchObject.rotation.x = Math.max(-PI_2, Math.min(PI_2, pitchObject.rotation.x));
@@ -186,11 +196,13 @@ module.exports.Component = registerComponent('custom-look-controls', {
     if (!this.touchStarted) { return; }
 
     // Added: Vertical touch movement
-    var deltaX;
-    var pitchObject = this.pitchObject;
-    deltaX = 2 * Math.PI * (e.touches[0].pageY - this.touchStart.y) /
-            this.el.sceneEl.canvas.clientHeight;
-    pitchObject.rotation.x -= deltaX * 0.5;
+    if (allowVerticalTouchMovement) {
+      var deltaX;
+      var pitchObject = this.pitchObject;
+      deltaX = 2 * Math.PI * (e.touches[0].pageY - this.touchStart.y) /
+              this.el.sceneEl.canvas.clientHeight;
+      pitchObject.rotation.x -= deltaX * 0.5;
+    }
 
     var deltaY;
     var yawObject = this.yawObject;
