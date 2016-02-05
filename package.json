@@ -21,7 +21,7 @@
     "three-dev": "0.74.0-beta8"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "serve": "twistd -no web --path=./src --port=5555",
     "serve-js": "webpack-dev-server --host 0.0.0.0 --content-base src --progress --watch --history-api-fallback --inline --hot"
   },
