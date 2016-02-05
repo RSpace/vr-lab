@@ -1,18 +1,22 @@
 var path = require('path');
 var webpack = require('webpack');
 require('babel-polyfill');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-var ENTRY_POINTS = [
-  './src/js/app'
-];
+var ENTRY_POINTS = {
+  bundle: './src/js/app',
+  about: './src/js/about'
+};
 
 var JS_LOADERS = [
   'babel?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0'
 ];
 
-var PLUGINS = [];
+var PLUGINS = [
+  new ExtractTextPlugin("[name].css")
+];
 if (IS_PRODUCTION) {
   // Uglify in production.
   PLUGINS.push(
@@ -29,7 +33,8 @@ module.exports = {
   entry: ENTRY_POINTS,
   output: {
     // Bundle will be served at /bundle.js locally.
-    filename: 'bundle.js',
+    filename: "[name].js",
+    chunkFilename: "[id].js",
     // Bundle will be built at ./src/media/js.
     path: './build',
     publicPath: '/',
@@ -52,7 +57,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: ExtractTextPlugin.extract("style", "css", "sass")
       }
     ],
   },

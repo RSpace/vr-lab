@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, Sans-Serif;
+}
+
+@media screen and (min-width: 900px) {
+  .about-container {
+    width: 700px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about-container {
+    padding: 0 20px;
+  }
+}

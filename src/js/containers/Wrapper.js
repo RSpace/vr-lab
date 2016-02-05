@@ -37,7 +37,7 @@ class Wrapper extends Component {
                 position="2 -1.5 0" width="4" height="2.25" autoplay={false} loop={false}
                 isPlaying={this.props.isVideoPlaying} />
             </Entity>
-            <Entity geometry="primitive: plane; width: 2; height: 0.5" position="1.8 -3 0" onClick={openUrl.bind(this, 'http://cphdox.dk/en/more-than-films/vrlab/')} material={{shader: 'flat', src: 'url(assets/gfx/read_more.png)'}} />
+            <Entity geometry="primitive: plane; width: 2; height: 0.5" position="1.8 -3 0" onClick={openUrl.bind(this, 'about.html')} material={{shader: 'flat', src: 'url(assets/gfx/read_more.png)'}} />
           </Entity>
 
           <Entity position="-4 -1 -1" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} onClick={openUrl.bind('this', 'http://vrlab.tictail.com/')} />

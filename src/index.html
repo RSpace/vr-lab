@@ -7,9 +7,16 @@
   <body>
     <div id="root"></div>
     <script>
+      var baseUrl = document.location.protocol + '//' + document.location.hostname + ':8080/';
+
       var script = document.createElement('script');
-      script.src = document.location.protocol + '//' + document.location.hostname + ':8080/bundle.js';
+      script.src = baseUrl + 'bundle.js';
       document.body.appendChild(script);
+
+      var link = document.createElement('link');
+      link.href = baseUrl + 'bundle.css';
+      link.rel = 'stylesheet';
+      document.head.appendChild(link);
     </script>
   </body>
 </html>
