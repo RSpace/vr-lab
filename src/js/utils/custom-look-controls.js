@@ -52,8 +52,6 @@ module.exports.Component = registerComponent('custom-look-controls', {
     canvasEl.addEventListener('mouseout', this.releaseMouse.bind(this), true);
 
     // Touch events
-    window.addEventListener('touchstart', function() { 'window touchstart' });
-    window.addEventListener('touchmove', function() { 'window touchmove' });
     canvasEl.addEventListener('touchstart', this.onTouchStart.bind(this));
     canvasEl.addEventListener('touchmove', this.onTouchMove.bind(this));
     canvasEl.addEventListener('touchend', this.onTouchEnd.bind(this));
@@ -189,8 +187,6 @@ module.exports.Component = registerComponent('custom-look-controls', {
       y: e.touches[0].pageY
     };
     this.touchStarted = true;
-
-    e.preventDefault();
   },
 
   onTouchMove: function (e) {
@@ -221,3 +217,4 @@ module.exports.Component = registerComponent('custom-look-controls', {
     this.touchStarted = false;
   }
 });
+
