@@ -40,7 +40,7 @@ class Wrapper extends Component {
             <Entity geometry="primitive: plane; width: 2; height: 0.5" position="1.8 -3 0" onClick={openUrl.bind(this, 'about.html')} material={{shader: 'flat', src: 'url(assets/gfx/read_more.png)'}} />
           </Entity>
 
-          <Entity position="-4 -1 -1" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 2.5" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions.png)'}} onClick={openUrl.bind('this', 'http://vrlab.tictail.com/')} />
+          <Entity position="-4 -1 -1" rotation="-25 75 0" geometry="primitive: plane; width: 4; height: 4" material={{shader: 'flat', src: 'url(assets/gfx/Exhibitions_Cardboard.png)'}} onClick={openUrl.bind('this', 'http://vrlab.tictail.com/')} />
 
           <Entity position="-0.45 -2 -0.5" rotation="-90 0 0" geometry="primitive: plane; width: 2; height: 0.5" material={{shader: 'flat', src: 'url(assets/gfx/download_app.png)'}} />
           <Entity position="0.15 -2 0" rotation="-90 0 0" onClick={openUrl.bind(this, 'https://itunes.apple.com/us/app/vrlab/id1045586626')} geometry="primitive: plane; width: 1; height: 0.5" material={{shader: 'flat', src: 'url(assets/gfx/app_store.png?v=2)'}} />
